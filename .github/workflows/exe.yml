@@ -3,7 +3,7 @@ name: EXE V2 BLD
 on:
   push:
     branches:
-      - main
+      - second
   workflow_dispatch:
 
 jobs:
@@ -26,10 +26,10 @@ jobs:
 
       - name: Build EXE with PyInstaller
         run: |
-          pyinstaller --onefile --icon=icon.ico main.py
+          pyinstaller --onefile --icon=icon.ico --name pdhsallin main.py
 
       - name: Upload EXE artifact
         uses: actions/upload-artifact@v4
         with:
           name: PDHS ALLIN
-          path: pdhsallin.exe
+          path: dist/pdhsallin.exe
